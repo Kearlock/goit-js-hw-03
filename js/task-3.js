@@ -1,7 +1,13 @@
-function getElementWidth(content, padding, border) {
-  return parseFloat(content) + 2 * parseFloat(padding) + 2 * parseFloat(border);
+function filterArray(numbers, value) {
+  const overValue = [];
+  for (let item of numbers) {
+    if (item > value) {
+      overValue.push(item);
+    }
+  }
+  return overValue;
 }
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([10, 20, 30, 40], 25)); // [30, 40]
+console.log(filterArray([5, 10, 15, 20], 10)); // [15, 20]
